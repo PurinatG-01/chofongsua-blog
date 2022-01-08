@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+:root {
+  --base-white: #fefefe;
+  --base-black: #232323;
+
+  --page-container-max-width: 1200px;
+
+  --page-bg: var(--base-white);
+  --page-text-color: var(--base-black);
+}
+
+[data-theme="dark"] {
+  --page-bg: var(--base-black);
+  --page-text-color: var(--base-white);
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  transition: all 0.2s ease-in-out;
+  background-color: var(--page-bg);
+  color: var(--page-text-color);
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Space Mono", monospace;
+}
