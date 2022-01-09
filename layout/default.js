@@ -1,5 +1,5 @@
 import React, { useEffect } from "react"
-import { PageContainer } from "../components/global"
+import { PageContainer, Card } from "../components/global"
 import useTheme from "../hooks/useTheme"
 
 export default function Layout(props) {
