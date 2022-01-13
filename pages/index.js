@@ -25,12 +25,24 @@ const ButtonDown = styled(Button)`
   margin: 0 auto;
 `
 
+const FloatingProp = styled(motion.div)`
+  position: absolute;
+  z-index: 200;
+  background-color: var(--reverse-bg);
+  border-radius: 50%;
+  min-width: 32px;
+  min-height: 32px;
+  opacity: 0.4;
+  ${(props) => props.styled}
+`
+
 const Section = styled.section`
   width: 100%;
   margin-bottom: 48px;
   display: block;
   min-height: 100vh;
   ${(props) => props.styled}
+  position: relative;
   .__quote {
     text-align: center;
     margin-bottom: 32px;
@@ -95,6 +107,17 @@ const CardLogo = styled.div``
 const CardButton = styled(Button)``
 
 export default function Home() {
+  const floatingPropAnimate = {
+    animate: {
+      y: 2,
+    },
+    transition: {
+      ease: "linear",
+      duration: 1,
+      repeat: Infinity,
+      bounce: 0.6,
+    },
+  }
   const goTo = (url) => {
     if (!window) return
     window.open(url)
@@ -113,6 +136,18 @@ export default function Home() {
   return (
     <>
       <Section styled="margin-bottom:320px; margin-top: 80px;">
+        {/* <FloatingProp
+          {...floatingPropAnimate}
+          styled="width: 64px; height: 64px ;top: 0;"
+        />
+        <FloatingProp
+          {...floatingPropAnimate}
+          styled="width: 24px; height: 24px ;top: 40%; left: 32px;"
+        />
+        <FloatingProp
+          {...floatingPropAnimate}
+          styled="width: 100px; height: 100px ;top: 40px; right: 10px;"
+        /> */}
         <Avatar src="/image/profile_1.jpeg" />
         <SectionTitle>{profileConfig.name}</SectionTitle>
         <span className="__quote">{profileConfig.quote}</span>
