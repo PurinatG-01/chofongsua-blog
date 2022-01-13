@@ -7,15 +7,21 @@ import { faMoon } from "@fortawesome/free-solid-svg-icons"
 import useTheme from "../../hooks/useTheme"
 
 const NavBar = styled(motion.nav)`
+  width: 100vw;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--page-bg);
+  box-shadow: var(--nav-bar-shadow);
+`
+
+const NavBarContainer = styled(motion.div)`
   max-width: 1200px;
   padding: 16px 24px;
   max-height: 10vh;
   width: 100%;
   height: 100%;
   margin: 0 auto;
-  position: sticky;
-  top: 0;
-  z-index: 100;
   display: flex;
   justify-content: space-between;
 `
@@ -44,10 +50,12 @@ export default function navbar() {
   }, [])
   return (
     <NavBar>
-      <LogoText href="/">CHOFONGSUA</LogoText>
-      <ThemeButton onClick={toggleTheme}>
-        <FontAwesomeIcon icon={faMoon} />
-      </ThemeButton>
+      <NavBarContainer>
+        <LogoText href="/">CHOFONGSUA</LogoText>
+        <ThemeButton onClick={toggleTheme}>
+          <FontAwesomeIcon icon={faMoon} />
+        </ThemeButton>
+      </NavBarContainer>
     </NavBar>
   )
 }

@@ -13,6 +13,8 @@
   --page-bg: var(--base-primary-white);
   --page-text-color: var(--base-primary-black);
 
+  --nav-bar-shadow: -1px 10px 19px -8px var(--page-bg);
+
   --card-bg: var(--base-secondary-white);
   --card-color: var(--base-secondary-black);
   --card-border: var(--base-light-grey);
@@ -27,6 +29,8 @@
   --page-bg: var(--base-primary-black);
   --page-text-color: var(--base-primary-white);
 
+  --nav-bar-shadow: -1px 10px 19px -8px var(--page-bg);
+
   --card-bg: var(--base-secondary-black);
   --card-color: var(--base-secondary-white);
   --card-border: var(--base-dark-grey);
@@ -39,15 +43,15 @@
 
 html,
 body {
-  padding: 0;
-  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   transition: all 0.2s ease-in-out;
   background-color: var(--page-bg);
   color: var(--page-text-color);
-  min-width: 100vw;
-  min-height: 100vh;
+  /* min-height: 100vh; */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 a {

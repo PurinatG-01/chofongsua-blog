@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import { motion } from "framer-motion"
 
-export const PageContainer = styled(motion.div)`
+export const PageContainer = styled(motion.main)`
   max-width: var(--page-container-max-width);
   width: 100%;
   padding: 0 16px;
@@ -41,9 +41,18 @@ export const ParallaxContainer = styled(motion.div)`
   ${(props) => (props?.styled ? props.styled : "")}
 `
 
+export const Image = styled(motion.img)`
+  border-radius: 4px;
+  box-shadow: var(--base-box-shadow);
+  -webkit-box-shadow: var(--base-box-shadow);
+  -moz-box-shadow: var(--base-box-shadow);
+  ${(props) => props.styled}
+`
+
 export default {
   PageContainer,
   Card,
   Button,
   ParallaxContainer,
+  Image,
 }

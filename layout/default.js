@@ -1,17 +1,28 @@
-import React, { useEffect } from "react"
+import React from "react"
 import { PageContainer } from "../components/global"
 import NavBar from "../components/_layout/navbar"
-import { motion } from "framer-motion"
+import styled from "styled-components"
+
+const PageWrapper = styled.div`
+  display: block;
+  overflow: auto;
+`
 
 export default function Layout(props) {
   return (
-    <motion.div
-      transition={{ type: "spring", duration: 1.2 }}
-      initial={{ y: -32, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-    >
-      <NavBar />
-      <PageContainer>{props.children}</PageContainer>
-    </motion.div>
+    <PageWrapper>
+      <NavBar
+        transition={{ type: "spring", duration: 1.2 }}
+        initial={{ y: -32, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+      />
+      <PageContainer
+        transition={{ type: "spring", duration: 1.2 }}
+        initial={{ y: -32, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+      >
+        {props.children}
+      </PageContainer>
+    </PageWrapper>
   )
 }
