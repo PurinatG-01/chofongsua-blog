@@ -1,31 +1,60 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
 :root {
-  --base-white: #fefefe;
-  --base-black: #232323;
+  --base-primary-white: #fefefe;
+  --base-secondary-white: #fafafa;
+  --base-primary-black: #232323;
+  --base-secondary-black: #333333;
+  --base-light-grey: #f0f0f0;
+  --base-dark-grey: #4e4e4e;
+  --base-box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+  --reverse-bg: var(--base-primary-black);
 
   --page-container-max-width: 1200px;
+  --page-bg: var(--base-primary-white);
+  --page-text-color: var(--base-primary-black);
 
-  --page-bg: var(--base-white);
-  --page-text-color: var(--base-black);
+  --nav-bar-shadow: -1px 10px 19px -8px var(--page-bg);
+
+  --card-bg: var(--base-secondary-white);
+  --card-color: var(--base-secondary-black);
+  --card-border: var(--base-light-grey);
+
+  --button-bg: var(--base-light-grey);
+  --button-color: var(--base-secondary-black);
+  --button-hover-bg: var(--base-primary-black);
+  --button-hover-color: var(--base-secondary-white);
 }
 
 [data-theme="dark"] {
-  --page-bg: var(--base-black);
-  --page-text-color: var(--base-white);
+  --reverse-bg: var(--base-primary-white);
+  --page-bg: var(--base-primary-black);
+  --page-text-color: var(--base-primary-white);
+
+  --nav-bar-shadow: -1px 10px 19px -8px var(--page-bg);
+
+  --card-bg: var(--base-secondary-black);
+  --card-color: var(--base-secondary-white);
+  --card-border: var(--base-dark-grey);
+
+  --button-bg: var(--base-dark-grey);
+  --button-color: var(--base-secondary-white);
+  --button-hover-bg: var(--base-primary-white);
+  --button-hover-color: var(--base-secondary-black);
 }
 
 html,
 body {
-  padding: 0;
-  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   transition: all 0.2s ease-in-out;
   background-color: var(--page-bg);
   color: var(--page-text-color);
-  min-width: 100vw;
-  min-height: 100vh;
+  /* min-height: 100vh; */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 a {

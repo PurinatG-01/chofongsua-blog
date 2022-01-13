@@ -1,17 +1,28 @@
-import React, { useEffect } from "react"
+import React from "react"
 import { PageContainer } from "../components/global"
-import useTheme from "../hooks/useTheme"
+import NavBar from "../components/_layout/navbar"
+import styled from "styled-components"
+
+const PageWrapper = styled.div`
+  display: block;
+  overflow: auto;
+`
 
 export default function Layout(props) {
-  const { toggleTheme, initTheme } = useTheme()
-  useEffect(() => {
-    initTheme()
-  }, [])
-
   return (
-    <>
-      <button onClick={toggleTheme}>toggle</button>
-      <PageContainer>{props.children}</PageContainer>
-    </>
+    <PageWrapper>
+      <NavBar
+        transition={{ type: "spring", duration: 1.2 }}
+        initial={{ y: -32, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+      />
+      <PageContainer
+        transition={{ type: "spring", duration: 1.2 }}
+        initial={{ y: -32, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+      >
+        {props.children}
+      </PageContainer>
+    </PageWrapper>
   )
 }
