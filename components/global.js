@@ -1,13 +1,14 @@
 import styled from "styled-components"
+import { motion } from "framer-motion"
 
-export const PageContainer = styled.div`
+export const PageContainer = styled(motion.div)`
   max-width: var(--page-container-max-width);
   width: 100%;
   padding: 0 16px;
   margin: 0 auto;
 `
 
-export const Card = styled.div`
+export const Card = styled(motion.div)`
   padding: 16px;
   background: var(--card-bg);
   color: var(--card-color);
@@ -18,7 +19,7 @@ export const Card = styled.div`
   -moz-box-shadow: var(--base-box-shadow);
 `
 
-export const Button = styled.button`
+export const Button = styled(motion.button)`
   padding: 8px 16px;
   border: none;
   border-radius: 4px;
@@ -33,8 +34,16 @@ export const Button = styled.button`
   }
 `
 
+export const ParallaxContainer = styled(motion.div)`
+  padding: 16px;
+  perspective: 300px;
+  transform-style: preserve-3d;
+  ${(props) => (props?.styled ? props.styled : "")}
+`
+
 export default {
   PageContainer,
   Card,
   Button,
+  ParallaxContainer,
 }

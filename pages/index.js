@@ -1,5 +1,4 @@
 import { Card, Button } from "../components/global"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import styled from "styled-components"
 
 import socialMediaList from "../config/socialMedia"
@@ -62,7 +61,7 @@ export default function Home() {
         <SocialMediaList>
           {socialMediaList.map((social, index) => (
             <SocialMediaCard key={index}>
-              <CardLogo></CardLogo>
+              <CardLogo>{social.icon()}</CardLogo>
               <CardTitle>{social.title}</CardTitle>
               <CardDescription>{social.description}</CardDescription>
               <CardButton
