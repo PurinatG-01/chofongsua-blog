@@ -136,18 +136,6 @@ export default function Home() {
   return (
     <>
       <Section styled="margin-bottom:320px; margin-top: 80px;">
-        {/* <FloatingProp
-          {...floatingPropAnimate}
-          styled="width: 64px; height: 64px ;top: 0;"
-        />
-        <FloatingProp
-          {...floatingPropAnimate}
-          styled="width: 24px; height: 24px ;top: 40%; left: 32px;"
-        />
-        <FloatingProp
-          {...floatingPropAnimate}
-          styled="width: 100px; height: 100px ;top: 40px; right: 10px;"
-        /> */}
         <Avatar src="/image/profile_1.jpeg" />
         <SectionTitle>{profileConfig.name}</SectionTitle>
         <span className="__quote">{profileConfig.quote}</span>
