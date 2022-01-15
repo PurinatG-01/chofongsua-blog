@@ -1,14 +1,14 @@
 import React, { useEffect } from "react"
 import styled from "styled-components"
-import { Button } from "../global"
+import { Button } from "components/global"
 import { motion } from "framer-motion"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faMoon } from "@fortawesome/free-solid-svg-icons"
-import useTheme from "../../hooks/useTheme"
+import useTheme from "hooks/useTheme"
 
 const NavBar = styled(motion.nav)`
   width: 100vw;
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 100;
   background-color: var(--page-bg);
