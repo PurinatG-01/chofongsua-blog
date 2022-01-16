@@ -12,6 +12,9 @@ const Avatar = styled(Image)`
   height: 128px;
   margin: 20px auto;
   display: block;
+  object-fit: cover;
+  object-position: center;
+  box-shadow: none !important;
 `
 
 const scrollIntoView = (id) => {
@@ -24,8 +27,8 @@ const scrollIntoView = (id) => {
 
 export default function IndexGreetingSection() {
   return (
-    <main.section styled="margin-bottom:320px; margin-top: 80px;">
-      <Avatar src="/image/profile_1.jpeg" />
+    <main.section styled="margin-bottom:320px; margin-top: 20vh;">
+      <Avatar src="/image/avatar_5.gif" />
       <main.sectionTitle>{profileConfig.name}</main.sectionTitle>
       <span className="__quote">{profileConfig.quote}</span>
       <p className="__description">{profileConfig.description}</p>
