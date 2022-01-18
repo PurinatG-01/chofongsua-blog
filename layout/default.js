@@ -26,9 +26,11 @@ const PageAnimationProps = {
 
 export default function Layout(props) {
   return (
-    <PageWrapper {...PageAnimationProps}>
-      <NavBar />
-      <PageContainer>{props.children}</PageContainer>
-    </PageWrapper>
+    <>
+      <PageWrapper {...PageAnimationProps}>
+        <NavBar />
+        <PageContainer>{props.children}</PageContainer>
+      </PageWrapper>
+    </>
   )
 }
