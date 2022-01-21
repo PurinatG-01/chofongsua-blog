@@ -6,32 +6,13 @@ import profileConfig from "config/profile"
 import { motion } from "framer-motion"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowDown } from "@fortawesome/free-solid-svg-icons"
-
-const Avatar = styled(Image)`
-  border-radius: 50%;
-  width: 128px;
-  height: 128px;
-  margin: 20px auto;
-  display: block;
-  object-fit: cover;
-  object-position: center;
-  box-shadow: none !important;
-`
+import scrollIntoView from "helper/scrollIntoView"
+import AnimatedText from "components/animated/AnimatedText"
 
 const GreetingSection = styled(main.section)`
   margin-bottom: 320px;
   margin-top: 20vh;
   position: static;
-  video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 110vh;
-    z-index: 0;
-    object-fit: cover;
-    opacity: 0.8;
-  }
 `
 
 const BackgroundOverlay = styled(motion.div)`
@@ -41,9 +22,11 @@ const BackgroundOverlay = styled(motion.div)`
   width: 100vw;
   height: 110vh;
   z-index: 1;
-  background-color: var(--page-bg);
-  opacity: 0.8;
-  mix-blend-mode: soft-light;
+  background: linear-gradient(
+    54deg,
+    var(--page-bg) 40%,
+    var(--reverse-bg) 200%
+  ); ;
 `
 
 const ForegroundOverlay = styled(motion.div)`
@@ -55,31 +38,43 @@ const ForegroundOverlay = styled(motion.div)`
   width: 100vw;
   height: 110vh;
   z-index: 2;
-  box-shadow: var(--overlay-shadow);
-  -webkit-box-shadow: var(--overlay-shadow);
-  -moz-box-shadow: var(--overlay-shadow);
 `
 
-const scrollIntoView = (id) => {
-  if (!window || !document) return
-  const yOffset = -100
-  const element = document.querySelector(id)
-  const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset
-  window.scrollTo({ top: y, behavior: "smooth" })
+const container = {
+  visible: {
+    transition: {
+      staggerChildren: 0.025,
+    },
+  },
 }
 
 export default function IndexGreetingSection() {
+  const placeholderText = [
+    { type: "heading1", text: "Welcome to" },
+    {
+      type: "heading2",
+      text: "Chofongsua's blog",
+    },
+  ]
+
   return (
     <GreetingSection>
-      <video autoPlay loop muted>
-        <source src="/image/sky_bg_1.mp4" type="video/mp4" />
-      </video>
-      <BackgroundOverlay></BackgroundOverlay>
-      <ForegroundOverlay>
-        <Avatar src="/image/avatar_5.gif" />
-        <main.sectionTitle>{profileConfig.name}</main.sectionTitle>
-        <span className="__quote">{profileConfig.quote}</span>
-        <p className="__description">{profileConfig.description}</p>
+      <BackgroundOverlay />
+      <ForegroundOverlay
+        initial="hidden"
+        animate="visible"
+        variants={container}
+      >
+        <div className="__title -desktop">
+          {placeholderText.map((item, index) => {
+            return <AnimatedText {...item} key={index} />
+          })}
+        </div>
+        <h1 className="__title -mobile">
+          {placeholderText.map((item, index) => {
+            return <AnimatedText {...item} key={index} />
+          })}
+        </h1>
         <main.buttonDown
           initial={{ opacity: 0 }}
           animate={{ y: 30, opacity: 1 }}
@@ -90,7 +85,7 @@ export default function IndexGreetingSection() {
             repeat: Infinity,
           }}
           onClick={() => {
-            scrollIntoView("#social-media")
+            scrollIntoView("#profile")
           }}
         >
           <FontAwesomeIcon icon={faArrowDown} />

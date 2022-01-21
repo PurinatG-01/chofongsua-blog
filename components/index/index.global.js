@@ -19,6 +19,26 @@ export const section = styled.section`
   min-height: 100vh;
   ${(props) => props.styled}
   position: relative;
+  .__title {
+    text-align: center;
+    text-transform: uppercase;
+    &.-mobile,
+    &.-mobile * {
+      font-size: 32px !important;
+      letter-spacing: 16px !important;
+      @media screen and (min-width: 1200px) {
+        display: none;
+      }
+    }
+    &.-desktop,
+    &.-desktop * {
+      font-size: 40px !important;
+      letter-spacing: 24px !important;
+      @media screen and (max-width: 1199px) {
+        display: none;
+      }
+    }
+  }
   .__quote {
     text-align: center;
     margin-bottom: 32px;
