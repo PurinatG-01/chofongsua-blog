@@ -10,7 +10,7 @@ import scrollIntoView from "helper/scrollIntoView"
 import AnimatedText from "components/animated/AnimatedText"
 
 const GreetingSection = styled(main.section)`
-  margin-bottom: 320px;
+  margin-bottom: 100px;
   margin-top: 20vh;
   position: static;
 `
@@ -58,7 +58,7 @@ export default function IndexGreetingSection() {
   ]
 
   return (
-    <GreetingSection>
+    <GreetingSection animate={{ opacity: 1 }}>
       <BackgroundOverlay />
       <ForegroundOverlay
         initial="hidden"
@@ -70,11 +70,11 @@ export default function IndexGreetingSection() {
             return <AnimatedText {...item} key={index} />
           })}
         </div>
-        <h1 className="__title -mobile">
+        <div className="__title -mobile">
           {placeholderText.map((item, index) => {
             return <AnimatedText {...item} key={index} />
           })}
-        </h1>
+        </div>
         <main.buttonDown
           initial={{ opacity: 0 }}
           animate={{ y: 30, opacity: 1 }}

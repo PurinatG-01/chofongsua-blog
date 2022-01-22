@@ -37,6 +37,8 @@ const NavBarContainer = styled(motion.div)`
 const ThemeButton = styled(Button)`
   border-radius: 50%;
   padding: 7px;
+  width: 24px;
+  height: 24px;
   display: flex;
   align-items: center;
   justify-content: center;

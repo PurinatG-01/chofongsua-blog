@@ -1,4 +1,5 @@
 import { Button } from "components/global"
+import { motion } from "framer-motion"
 import styled from "styled-components"
 
 export const buttonDown = styled(Button)`
@@ -12,19 +13,19 @@ export const buttonDown = styled(Button)`
   margin: 0 auto;
 `
 
-export const section = styled.section`
+export const section = styled(motion.section)`
   width: 100%;
   margin-bottom: 48px;
   display: block;
   min-height: 100vh;
-  ${(props) => props.styled}
+  scroll-snap-align: start;
   position: relative;
   .__title {
     text-align: center;
     text-transform: uppercase;
     &.-mobile,
     &.-mobile * {
-      font-size: 32px !important;
+      font-size: 1.1em !important;
       letter-spacing: 16px !important;
       @media screen and (min-width: 1200px) {
         display: none;
@@ -51,6 +52,8 @@ export const section = styled.section`
     margin-bottom: 32px;
     font-weight: 100;
   }
+  scroll-snap-align: start;
+  ${(props) => props.styled}
 `
 
 export const sectionTitle = styled.span`

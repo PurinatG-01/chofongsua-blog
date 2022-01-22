@@ -58,6 +58,8 @@ body {
   padding: 0;
   box-sizing: border-box;
   scroll-behavior: smooth;
+  cursor: url("/image/circle_1.svg") 7 7, auto;
+  caret-shape: block;
 }
 
 a {
@@ -68,4 +70,26 @@ a {
 * {
   box-sizing: border-box;
   font-family: "Space Mono", monospace;
+}
+
+::-moz-selection {
+  /* Code for Firefox */
+  color: var(--page-bg);
+  background: var(--reverse-bg);
+}
+
+::selection {
+  color: var(--page-bg);
+  background: var(--reverse-bg);
+}
+
+[data-theme="dark"]::-moz-selection {
+  /* Code for Firefox */
+  color: var(--page-bg);
+  background: var(--reverse-bg);
+}
+
+[data-theme="dark"]::selection {
+  color: var(--page-bg);
+  background: var(--reverse-bg);
 }
