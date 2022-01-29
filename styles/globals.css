@@ -70,6 +70,7 @@ a {
 * {
   box-sizing: border-box;
   font-family: "Space Mono", monospace;
+  font-size: 12px;
 }
 
 ::-moz-selection {
@@ -92,4 +93,20 @@ a {
 [data-theme="dark"]::selection {
   color: var(--page-bg);
   background: var(--reverse-bg);
+}
+
+._header {
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+._bold {
+  font-weight: 800;
+}
+
+._flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
