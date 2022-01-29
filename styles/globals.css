@@ -14,11 +14,13 @@
   --page-container-max-width: 1200px;
   --page-bg: var(--base-primary-white);
   --page-text-color: var(--base-primary-black);
+  --reverse-page-text-color: var(--base-primary-white);
 
   --nav-bar-shadow: 0px 10px 19px -8px var(--page-bg);
   --overlay-shadow: inset 0px -28px 20px -20px var(--page-bg);
 
   --card-bg: var(--base-secondary-white);
+  --reverse-card-bg: var(--base-secondary-black);
   --card-color: var(--base-secondary-black);
   --card-border: var(--base-light-grey);
 
@@ -32,11 +34,13 @@
   --reverse-bg: var(--base-primary-white);
   --page-bg: var(--base-primary-black);
   --page-text-color: var(--base-primary-white);
+  --reverse-page-text-color: var(--base-primary-black);
 
   --nav-bar-shadow: -1px 10px 19px -8px var(--page-bg);
   --overlay-shadow: inset 0px -28px 20px -20px var(--page-bg);
 
   --card-bg: var(--base-secondary-black);
+  --reverse-card-bg: var(--base-secondary-white);
   --card-color: var(--base-secondary-white);
   --card-border: var(--base-dark-grey);
 
@@ -70,7 +74,7 @@ a {
 * {
   box-sizing: border-box;
   font-family: "Space Mono", monospace;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 ::-moz-selection {
@@ -109,4 +113,22 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 263px;
+  }
+}
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: var(--page-text-color);
+  }
 }
