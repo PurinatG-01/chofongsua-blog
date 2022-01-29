@@ -144,6 +144,9 @@ const SkillAnimtaProps = (_delay) => ({
 export default function IndexProfileSection(props) {
   const { observe, inView } = useInView({
     threshold: 0.2,
+    onEnter: ({ unobserve }) => {
+      unobserve()
+    },
   })
 
   return (
