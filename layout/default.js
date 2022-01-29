@@ -2,6 +2,7 @@ import React from "react"
 import { PageContainer } from "components/global"
 import { motion } from "framer-motion"
 import NavBar from "components/layout/navbar"
+import ScrollContainer from "@/components/animated/ScrollContainer"
 import styled from "styled-components"
 
 const PageWrapper = styled(motion.div)`
@@ -26,11 +27,11 @@ const PageAnimationProps = {
 
 export default function Layout(props) {
   return (
-    <>
+    <ScrollContainer>
       <PageWrapper {...PageAnimationProps}>
         <NavBar />
         <PageContainer>{props.children}</PageContainer>
       </PageWrapper>
-    </>
+    </ScrollContainer>
   )
 }
