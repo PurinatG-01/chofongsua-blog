@@ -19,7 +19,7 @@ const Avatar = styled(Image)`
 
 const ProfileSection = styled(main.section)`
   max-width: var(--page-container-max-width);
-  margin: 0 auto;
+  margin: 0 auto 200px;
   .wrapper {
     display: flex;
     flex-direction: column;
@@ -144,11 +144,11 @@ const SkillAnimtaProps = (_delay) => ({
 
 export default function IndexProfileSection(props) {
   return (
-    <ProfileSection id="profile">
+    <ProfileSection id="profile" data-scroll data-scroll-speed="2">
       <motion.div {...ProfileAnimateProps} className="wrapper">
-        <Avatar src="/image/avatar_5.gif" />
+        <Avatar src="/image/avatar_5.gif" data-scroll data-scroll-speed={0.5} />
         <motion.div className="detail">
-          <main.sectionTitle className="name" data-scroll data-scroll-speed="2">
+          <main.sectionTitle className="name">
             {profileConfig.name}
           </main.sectionTitle>
           <motion.span className="quote">{profileConfig.quote}</motion.span>
@@ -163,6 +163,8 @@ export default function IndexProfileSection(props) {
             key={skill.title}
             className="skill"
             {...SkillAnimtaProps(skill.delay)}
+            data-scroll
+            data-scroll-speed={1 + skill.delay}
           >
             <motion.div className="icon">{skill.icon()}</motion.div>
             <motion.div>

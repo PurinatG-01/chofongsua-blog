@@ -68,17 +68,19 @@ export default function IndexGreetingSection() {
         animate="visible"
         variants={container}
       >
-        <div className="__title -desktop">
+        <div data-scroll data-scroll-speed="1.2" className="__title -desktop">
           {placeholderText.map((item, index) => {
             return <AnimatedText {...item} key={index} />
           })}
         </div>
-        <div className="__title -mobile">
+        <div data-scroll data-scroll-speed="1.5" className="__title -mobile">
           {placeholderText.map((item, index) => {
             return <AnimatedText {...item} key={index} />
           })}
         </div>
-        <main.buttonDown
+        {/* <main.buttonDown
+          data-scroll
+          data-scroll-speed="1.6"
           initial={{ opacity: 0 }}
           animate={{ y: 30, opacity: 1 }}
           transition={{
@@ -92,7 +94,7 @@ export default function IndexGreetingSection() {
           }}
         >
           <FontAwesomeIcon icon={faArrowDown} />
-        </main.buttonDown>
+        </main.buttonDown> */}
       </ForegroundOverlay>
     </GreetingSection>
   )

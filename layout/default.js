@@ -3,10 +3,7 @@ import { PageContainer } from "components/global"
 import { motion } from "framer-motion"
 import NavBar from "components/layout/navbar"
 import styled from "styled-components"
-import {
-  LocomotiveScrollProvider,
-  useLocomotiveScroll,
-} from "react-locomotive-scroll"
+import { LocomotiveScrollProvider } from "react-locomotive-scroll"
 
 const PageWrapper = styled(motion.div)`
   display: block;
@@ -30,11 +27,6 @@ const PageAnimationProps = {
 
 export default function Layout(props) {
   const containerRef = useRef(null)
-  const { scroll } = useLocomotiveScroll()
-
-  useEffect(() => {
-    console.log("> scroll : ", scroll)
-  }, [])
 
   return (
     <LocomotiveScrollProvider
