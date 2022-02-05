@@ -19,7 +19,7 @@ const Avatar = styled(Image)`
 
 const ProfileSection = styled(main.section)`
   max-width: var(--page-container-max-width);
-  margin: 0 auto;
+  margin: 0 auto 200px;
   .wrapper {
     display: flex;
     flex-direction: column;
@@ -68,6 +68,9 @@ const ProfileSection = styled(main.section)`
         gap: 16px;
         flex-basis: 30%;
         margin: 0 auto;
+        flex-wrap: wrap;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
         .icon {
           align-self: flex-start;
           overflow: hidden;
@@ -79,6 +82,7 @@ const ProfileSection = styled(main.section)`
           display: flex;
           align-items: center;
           justify-content: center;
+          margin: 0 auto;
           svg {
             width: 24px;
             height: 24px;
@@ -97,6 +101,13 @@ const ProfileSection = styled(main.section)`
           text-align: start;
           text-justify: inter-word;
         }
+
+        @media (min-width: 375px) {
+          flex-wrap: nowrap;
+        }
+      }
+      .inview-skill {
+        opacity: 1;
       }
     }
   }
@@ -144,11 +155,11 @@ const SkillAnimtaProps = (_delay) => ({
 
 export default function IndexProfileSection(props) {
   return (
-    <ProfileSection id="profile">
+    <ProfileSection id="profile" data-scroll data-scroll-speed="2">
       <motion.div {...ProfileAnimateProps} className="wrapper">
-        <Avatar src="/image/avatar_5.gif" />
+        <Avatar src="/image/avatar_5.gif" data-scroll data-scroll-speed={0.5} />
         <motion.div className="detail">
-          <main.sectionTitle className="name" data-scroll data-scroll-speed="2">
+          <main.sectionTitle className="name">
             {profileConfig.name}
           </main.sectionTitle>
           <motion.span className="quote">{profileConfig.quote}</motion.span>
@@ -162,7 +173,10 @@ export default function IndexProfileSection(props) {
           <motion.div
             key={skill.title}
             className="skill"
-            {...SkillAnimtaProps(skill.delay)}
+            data-scroll
+            data-scroll-class="inview-skill"
+            data-scroll-repeat="true"
+            data-scroll-speed={1 + skill.delay}
           >
             <motion.div className="icon">{skill.icon()}</motion.div>
             <motion.div>

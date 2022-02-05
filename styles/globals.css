@@ -3,16 +3,24 @@
 :root {
   --base-primary-white: #fefefe;
   --base-secondary-white: #fafafa;
+  --base-drop-white: #f1f1f1;
   --base-primary-black: #232323;
   --base-secondary-black: #333333;
+  --base-drop-black: #202020;
   --base-light-grey: #f0f0f0;
   --base-dark-grey: #4e4e4e;
+  --base-green: #31c95e;
+  --base-red: #f86753;
+  --base-yellow: #f7b933;
   --base-box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
 
-  --reverse-bg: var(--base-primary-black);
+  --reverse-bg: var(--base-secondary-black);
+  --reverse-button-bg: var(--base-primary-black);
+  --reverse-text-color: var(--base-primary-white);
 
   --page-container-max-width: 1200px;
   --page-bg: var(--base-primary-white);
+  --page-drop-bg: var(--base-drop-white);
   --page-text-color: var(--base-primary-black);
   --reverse-page-text-color: var(--base-primary-white);
 
@@ -31,8 +39,11 @@
 }
 
 [data-theme="dark"] {
-  --reverse-bg: var(--base-primary-white);
+  --reverse-bg: var(--base-secondary-white);
+  --reverse-button-bg: var(--base-primary-white);
+  --reverse-text-color: var(--base-primary-black);
   --page-bg: var(--base-primary-black);
+  --page-drop-bg: var(--base-drop-black);
   --page-text-color: var(--base-primary-white);
   --reverse-page-text-color: var(--base-primary-black);
 
