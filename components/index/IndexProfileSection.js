@@ -68,6 +68,9 @@ const ProfileSection = styled(main.section)`
         gap: 16px;
         flex-basis: 30%;
         margin: 0 auto;
+        flex-wrap: wrap;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
         .icon {
           align-self: flex-start;
           overflow: hidden;
@@ -79,6 +82,7 @@ const ProfileSection = styled(main.section)`
           display: flex;
           align-items: center;
           justify-content: center;
+          margin: 0 auto;
           svg {
             width: 24px;
             height: 24px;
@@ -97,6 +101,13 @@ const ProfileSection = styled(main.section)`
           text-align: start;
           text-justify: inter-word;
         }
+
+        @media (min-width: 375px) {
+          flex-wrap: nowrap;
+        }
+      }
+      .inview-skill {
+        opacity: 1;
       }
     }
   }
@@ -162,8 +173,9 @@ export default function IndexProfileSection(props) {
           <motion.div
             key={skill.title}
             className="skill"
-            {...SkillAnimtaProps(skill.delay)}
             data-scroll
+            data-scroll-class="inview-skill"
+            data-scroll-repeat="true"
             data-scroll-speed={1 + skill.delay}
           >
             <motion.div className="icon">{skill.icon()}</motion.div>
