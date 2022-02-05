@@ -10,9 +10,12 @@ import AnimatedText from "components/animated/AnimatedText"
 
 const GreetingSection = styled(main.section)`
   margin-bottom: 100px;
-  margin-top: 20vh;
   position: static;
-
+  background: linear-gradient(
+    54deg,
+    var(--page-bg) 40%,
+    var(--reverse-bg) 200%
+  );
   .cube-wrapper {
     position: absolute;
     z-index: 5000;
@@ -29,11 +32,6 @@ const BackgroundOverlay = styled(motion.div)`
   width: 100vw;
   height: 110vh;
   z-index: 1;
-  background: linear-gradient(
-    54deg,
-    var(--page-bg) 40%,
-    var(--reverse-bg) 200%
-  ); ;
 `
 
 const ForegroundOverlay = styled(motion.div)`
@@ -66,7 +64,6 @@ export default function IndexGreetingSection() {
 
   return (
     <GreetingSection animate={{ opacity: 1 }}>
-      <BackgroundOverlay />
       <ForegroundOverlay
         initial="hidden"
         animate="visible"

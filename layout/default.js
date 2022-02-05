@@ -1,9 +1,12 @@
-import React from "react"
+import React, { useRef, useEffect } from "react"
 import { PageContainer } from "components/global"
 import { motion } from "framer-motion"
 import NavBar from "components/layout/navbar"
-import ScrollContainer from "@/components/animated/ScrollContainer"
 import styled from "styled-components"
+import {
+  LocomotiveScrollProvider,
+  useLocomotiveScroll,
+} from "react-locomotive-scroll"
 
 const PageWrapper = styled(motion.div)`
   display: block;
@@ -26,12 +29,28 @@ const PageAnimationProps = {
 }
 
 export default function Layout(props) {
+  const containerRef = useRef(null)
+  const { scroll } = useLocomotiveScroll()
+
+  useEffect(() => {
+    console.log("> scroll : ", scroll)
+  }, [])
+
   return (
-    <ScrollContainer>
-      <PageWrapper {...PageAnimationProps}>
+    <LocomotiveScrollProvider
+      options={{
+        smooth: true,
+      }}
+      containerRef={containerRef}
+    >
+      <PageWrapper
+        {...PageAnimationProps}
+        data-scroll-container
+        ref={containerRef}
+      >
         <NavBar />
-        <PageContainer>{props.children}</PageContainer>
+        <PageContainer data-scroll-section>{props.children}</PageContainer>
       </PageWrapper>
-    </ScrollContainer>
+    </LocomotiveScrollProvider>
   )
 }

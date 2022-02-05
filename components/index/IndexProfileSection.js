@@ -3,7 +3,6 @@ import main from "components/index/index.global"
 import { Image } from "components/global"
 import styled from "styled-components"
 import profileConfig from "config/profile"
-import useInView from "react-cool-inview"
 import { motion } from "framer-motion"
 
 const Avatar = styled(Image)`
@@ -19,6 +18,8 @@ const Avatar = styled(Image)`
 `
 
 const ProfileSection = styled(main.section)`
+  max-width: var(--page-container-max-width);
+  margin: 0 auto;
   .wrapper {
     display: flex;
     flex-direction: column;
@@ -142,44 +143,31 @@ const SkillAnimtaProps = (_delay) => ({
 })
 
 export default function IndexProfileSection(props) {
-  const { observe, inView } = useInView({
-    threshold: 0.2,
-  })
-
   return (
-    <ProfileSection ref={observe} id="profile">
-      {inView && (
-        <>
-          <motion.div {...ProfileAnimateProps} className="wrapper">
-            <Avatar src="/image/avatar_5.gif" />
-            <motion.div className="detail">
-              <main.sectionTitle className="name">
-                {profileConfig.name}
-              </main.sectionTitle>
-              <motion.span className="quote">{profileConfig.quote}</motion.span>
-              <motion.p className="description">
-                {profileConfig.description}
-              </motion.p>
+    <ProfileSection id="profile">
+      <motion.div {...ProfileAnimateProps} className="wrapper">
+        <Avatar src="/image/avatar_5.gif" />
+        <motion.div className="detail">
+          <main.sectionTitle className="name">
+            {profileConfig.name}
+          </main.sectionTitle>
+          <motion.span className="quote">{profileConfig.quote}</motion.span>
+          <motion.p className="description">
+            {profileConfig.description}
+          </motion.p>
+        </motion.div>
+      </motion.div>
+      <motion.div className="wrapper -bottom">
+        {profileConfig.skills.map((skill) => (
+          <motion.div className="skill" {...SkillAnimtaProps(skill.delay)}>
+            <motion.div className="icon">{skill.icon()}</motion.div>
+            <motion.div>
+              <motion.span className="title _header">{skill.title}</motion.span>
+              <motion.p className="description"> {skill.description}</motion.p>
             </motion.div>
           </motion.div>
-          <motion.div className="wrapper -bottom">
-            {profileConfig.skills.map((skill) => (
-              <motion.div className="skill" {...SkillAnimtaProps(skill.delay)}>
-                <motion.div className="icon">{skill.icon()}</motion.div>
-                <motion.div>
-                  <motion.span className="title _header">
-                    {skill.title}
-                  </motion.span>
-                  <motion.p className="description">
-                    {" "}
-                    {skill.description}
-                  </motion.p>
-                </motion.div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </>
-      )}
+        ))}
+      </motion.div>
     </ProfileSection>
   )
 }

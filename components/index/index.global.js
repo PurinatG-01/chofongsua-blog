@@ -20,6 +20,8 @@ export const section = styled(motion.section)`
   min-height: 100vh;
   scroll-snap-align: start;
   position: relative;
+  padding-left: 16px;
+  padding-right: 16px;
   .__title {
     text-align: center;
     text-transform: uppercase;
