@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react"
-import { useRouter } from "next/router"
+import React, { useEffect } from "react"
 import styled from "styled-components"
 import { Button } from "components/global"
 import { motion } from "framer-motion"
@@ -13,14 +12,14 @@ const NavBar = styled(motion.nav)`
   top: 0;
   z-index: 100;
   transition: all 0.2s ease-in-out;
-  background-color: var(--page-bg);
+  /* background-color: var(--page-bg);
   box-shadow: var(--nav-bar-shadow);
   background-color: ${(props) => props.isIndexPage && "transparent"};
   box-shadow: ${(props) => props.isIndexPage && "none"};
   background-color: ${(props) =>
     props.isIndexPage && props.scrollExceed && "var(--page-bg)"};
   box-shadow: ${(props) =>
-    props.isIndexPage && props.scrollExceed && "var(--nav-bar-shadow)"};
+    props.isIndexPage && props.scrollExceed && "var(--nav-bar-shadow)"}; */
 `
 
 const NavBarContainer = styled(motion.div)`
@@ -55,25 +54,12 @@ const LogoText = styled(motion.a)`
 
 export default function navbar() {
   const { toggleTheme, initTheme } = useTheme()
-  const router = useRouter()
-  const [isScrollExceedVH, setIsScrollExceedVH] = useState(false)
   useEffect(() => {
     initTheme()
   }, [])
-  useEffect(() => {
-    if (!window && router.pathname !== "/") return
-    const onScrollListener = function () {
-      setIsScrollExceedVH(window.pageYOffset > window.screen.height)
-    }
-    window.addEventListener("scroll", onScrollListener)
-    return () => window.removeEventListener("scroll", onScrollListener)
-  }, [])
 
   return (
-    <NavBar
-      scrollExceed={isScrollExceedVH}
-      isIndexPage={router.pathname === "/"}
-    >
+    <NavBar>
       <NavBarContainer>
         <LogoText href="/">CHOFONGSUA</LogoText>
         <ThemeButton onClick={toggleTheme}>
