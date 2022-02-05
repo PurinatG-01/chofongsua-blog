@@ -1,7 +1,6 @@
 import React from "react"
 import main from "components/index/index.global"
 import styled from "styled-components"
-import CubeRotated from "components/animated/CubeRotated"
 import { motion } from "framer-motion"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowDown } from "@fortawesome/free-solid-svg-icons"
@@ -69,13 +68,6 @@ export default function IndexGreetingSection() {
         animate="visible"
         variants={container}
       >
-        <motion.div className="cube-wrapper">
-          <CubeRotated size={20} reverse />
-          <CubeRotated size={50} />
-          <CubeRotated size={80} reverse />
-          <CubeRotated size={60} />
-        </motion.div>
-
         <div className="__title -desktop">
           {placeholderText.map((item, index) => {
             return <AnimatedText {...item} key={index} />

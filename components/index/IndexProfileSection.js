@@ -148,7 +148,7 @@ export default function IndexProfileSection(props) {
       <motion.div {...ProfileAnimateProps} className="wrapper">
         <Avatar src="/image/avatar_5.gif" />
         <motion.div className="detail">
-          <main.sectionTitle className="name">
+          <main.sectionTitle className="name" data-scroll data-scroll-speed="2">
             {profileConfig.name}
           </main.sectionTitle>
           <motion.span className="quote">{profileConfig.quote}</motion.span>
@@ -159,7 +159,11 @@ export default function IndexProfileSection(props) {
       </motion.div>
       <motion.div className="wrapper -bottom">
         {profileConfig.skills.map((skill) => (
-          <motion.div className="skill" {...SkillAnimtaProps(skill.delay)}>
+          <motion.div
+            key={skill.title}
+            className="skill"
+            {...SkillAnimtaProps(skill.delay)}
+          >
             <motion.div className="icon">{skill.icon()}</motion.div>
             <motion.div>
               <motion.span className="title _header">{skill.title}</motion.span>

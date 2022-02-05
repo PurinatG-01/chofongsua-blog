@@ -59,7 +59,7 @@ export default function IndexProjectsSection() {
       <main.sectionTitle>Projects</main.sectionTitle>
       <motion.div className="wrapper">
         {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((project) => (
-          <ProjectCard>
+          <ProjectCard key={project}>
             <motion.div className="flip-card-inner">
               <Card className="flip-card-front">Front</Card>
               <Card className="flip-card-back"></Card>
