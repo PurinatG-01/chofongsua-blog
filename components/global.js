@@ -2,10 +2,7 @@ import styled from "styled-components"
 import { motion } from "framer-motion"
 
 export const PageContainer = styled(motion.main)`
-  max-width: var(--page-container-max-width);
   width: 100%;
-  padding: 0 16px;
-  margin: 0 auto;
 `
 
 export const Card = styled(motion.div)`
