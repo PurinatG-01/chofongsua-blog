@@ -3,7 +3,13 @@ import {
   faFacebook,
   faInstagram,
   faLinkedin,
+  faGithub,
 } from "@fortawesome/free-brands-svg-icons"
+
+export const GitHubConfig = {
+  username: "PurinatG-01",
+  icon: () => <FontAwesomeIcon icon={faGithub} />,
+}
 
 export default [
   {
