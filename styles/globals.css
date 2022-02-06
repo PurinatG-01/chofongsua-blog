@@ -126,6 +126,30 @@ a {
   justify-content: center;
 }
 
+._text-green {
+  color: var(--base-green);
+}
+
+._text-red {
+  color: var(--base-red);
+}
+
+._text-yellow {
+  color: var(--base-yellow);
+}
+
+._bg-green {
+  background-color: var(--base-green);
+}
+
+._bg-red {
+  background-color: var(--base-red);
+}
+
+._bg-yellow {
+  background-color: var(--base-yellow);
+}
+
 @keyframes typing {
   from {
     width: 0;
