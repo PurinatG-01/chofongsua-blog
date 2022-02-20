@@ -127,6 +127,12 @@ a {
   justify-content: center;
 }
 
+._base-shadow{
+  box-shadow: var(--base-box-shadow);
+  -webkit-box-shadow: var(--base-box-shadow);
+  -moz-box-shadow: var(--base-box-shadow);
+}
+
 ._text-green {
   color: var(--base-green);
 }
