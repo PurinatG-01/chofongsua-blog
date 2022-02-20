@@ -396,7 +396,7 @@ export default function IndexProjectsSection() {
           <div className="detail__wrapper">
             <span className="detail__repos -chip">
               Public repositories:{" "}
-              <span class="_text-green">{userInfo?.public_repos ?? ""}</span>
+              <span className="_text-green">{userInfo?.public_repos ?? ""}</span>
             </span>
             <span className="detail__follow -chip">
               Follower : {userInfo?.followers ?? ""} | Following :{" "}
@@ -416,7 +416,7 @@ export default function IndexProjectsSection() {
           <ProjectCard
             key={project.title}
             className={`-${project.status.type}`}
-            colorTheme={project.colorTheme}
+            color-theme={project.colorTheme}
           >
             <div className="flip-card-inner">
               <Card
@@ -434,10 +434,11 @@ export default function IndexProjectsSection() {
                 )}
                 <p className="project__description">{project.description}</p>
                 {project.status.type == "more" &&
-                  project.url.map((url) => (
+                  project.url.map((url, index) => (
                     <Button
                       className="url"
                       onClick={() => window.open(url.url)}
+                      key={index}
                     >
                       {url.title}
                     </Button>
@@ -450,8 +451,8 @@ export default function IndexProjectsSection() {
                 data-scroll-class="inview-flip-card-inner"
                 data-scroll-repeat="true"
               >
-                {project.url.map((url) => (
-                  <Button className="url" onClick={() => window.open(url.url)}>
+                {project.url.map((url, index) => (
+                  <Button className="url" key={index} onClick={() => window.open(url.url)}>
                     {url.title}
                   </Button>
                 ))}
@@ -464,11 +465,12 @@ export default function IndexProjectsSection() {
         <span className="event-list__title">Github latest events</span>
         <div className="event-list__list">
           {!!eventInfo &&
-            [...eventInfo].slice(0, 8).map((event) => (
+            [...eventInfo].slice(0, 8).map((event, index) => (
               <Card
                 className="list__item"
                 data-scroll
                 data-scroll-class="inview-list__item"
+                key={index}
               >
                 <img
                   src={event?.actor?.avatar_url ?? ""}
