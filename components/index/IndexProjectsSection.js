@@ -359,9 +359,6 @@ const ProjectCard = styled(motion.div)`
 export default function IndexProjectsSection() {
   const { userInfo, config: gitHubConfig, eventInfo } = useGitHub()
 
-  // console.log("> userInfo : ", userInfo)
-  // console.log("> eventInfo?.slice(0,5) : ", eventInfo?.slice(0, 5))
-
   return (
     <ProjectSection
       className="project-section"
